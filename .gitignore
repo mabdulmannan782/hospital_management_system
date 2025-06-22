@@ -1,0 +1,24 @@
+# Output and build folders
+bin/
+obj/
+*.log
+
+# User settings
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDEs
+.vscode/
+.vs/
+
+# Configs
+appsettings.Development.json
+appsettings.Local.json
+.env
+*.env
+
+# OS stuff
+.DS_Store
+Thumbs.db

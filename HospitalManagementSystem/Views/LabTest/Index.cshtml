@@ -1,0 +1,36 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.LabTest>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Lab Tests</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Lab Test</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Test Name</th>
+            <th>Description</th>
+            <th>Preparation Instructions</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.PreparationInstructions</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.LabTestID" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.LabTestID" class="btn btn-sm btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.LabTestID" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

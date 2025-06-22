@@ -1,0 +1,43 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.Room>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rooms</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Room</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Room Number</th>
+            <th>Type</th>
+            <th>Hospital</th>
+            <th>Department</th>
+            <th>Capacity</th>
+            <th>Availability</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.RoomNumber</td>
+                <td>@item.Type</td>
+                <td>@item.Hospital?.Name</td>
+                <td>@item.Department?.Name</td>
+                <td>@item.Capacity</td>
+                <td>@item.Availability</td>
+                <td>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.RoomID">Edit</a> |
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.RoomID">Details</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.RoomID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

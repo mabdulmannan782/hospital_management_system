@@ -1,0 +1,72 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.Prescription>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Prescription</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Dosage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Frequency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medication)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dosage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Frequency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medication.Name)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.PrescriptionID">Edit</a> |
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.PrescriptionID">Details</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.PrescriptionID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

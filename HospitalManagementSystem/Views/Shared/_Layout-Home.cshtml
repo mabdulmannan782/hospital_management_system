@@ -1,0 +1,97 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>@ViewData["Title"] - HospitalManagementSystem</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <script type="importmap"></script>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/HospitalManagementSystem.styles.css" asp-append-version="true" />
+        <link href="~/css/bootstraps.min.css" rel="stylesheet">
+
+        <link href="~/css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="~/css/owl.carousel.min.css" rel="stylesheet">
+
+        <link href="~/css/owl.theme.default.min.css" rel="stylesheet">
+
+        <link href="~/css/templatemo-medic-care.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
+            <div class="container">
+                <a class="navbar-brand mx-auto d-lg-none" href="index.html">
+                    Medic Care
+                    <strong class="d-block">Health Specialist</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#hero">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#timeline">Timeline</a>
+                        </li>
+                        <a class="navbar-brand d-none d-lg-block" href="index.html">
+                            Medic Care
+                            <strong class="d-block">Health Specialist</strong>
+                        </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#reviews">Testimonials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#booking">Booking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+        
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Hospital Management System - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/scrollspy.min.js"></script>
+    <script src="~/js/custom.js"></script>
+</body>
+</html>

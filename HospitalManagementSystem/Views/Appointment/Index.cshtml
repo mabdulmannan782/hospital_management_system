@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.Appointment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Appointments</h2>
+<a asp-action="Create" class="btn btn-primary">Create New</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th>Reason</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Patient?.FirstName @item.Patient?.LastName</td>
+                <td>@item.Doctor?.FirstName @item.Doctor?.LastName</td>
+                <td>@item.AppointmentDate.ToShortDateString()</td>
+                <td>@item.AppointmentTime</td>
+                <td>@item.Status</td>
+                <td>@item.Reason</td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.AppointmentID">Details</a> |
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.AppointmentID">Edit</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.AppointmentID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<HospitalManagementSystem.Models.Hospital>
+
+@{
+    ViewData["Title"] = "Hospitals";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Hospitals</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Hospital</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Website</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hospital in Model)
+        {
+            <tr>
+                <td>@hospital.Name</td>
+                <td>@hospital.Address</td>
+                <td>@hospital.Phone</td>
+                <td>@hospital.Email</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(hospital.Website))
+                    {
+                        <a href="@hospital.Website" target="_blank">@hospital.Website</a>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@hospital.HospitalID" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@hospital.HospitalID" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

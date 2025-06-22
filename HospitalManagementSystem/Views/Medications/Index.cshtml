@@ -1,0 +1,54 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.Medication>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Medication</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dosage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SideEffects)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dosage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SideEffects)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.MedicationID">Edit</a> |
+                <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.MedicationID">Details</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.MedicationID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
